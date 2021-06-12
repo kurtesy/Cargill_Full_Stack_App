@@ -1,0 +1,135 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This defines the APIs for the Cargill Team management App",
+    "version": "1.0.0",
+    "title": "Cargill Team API Project",
+    "contact": {
+      "email": "np210291@gmail.com"
+    }
+  },
+  "host": "127.0.0.1:5000",
+  "tags": [
+    {
+      "name": "main",
+      "description": "Main APIs"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/add_team": {
+      "post": {
+        "tags": [
+          "main"
+        ],
+        "summary": "Adds team name and role to team details table",
+        "description": "This method is a POST endpoint which take team_name and team_role add the above to the table TeamDetails returns success once the db operation completed",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "team_name and team_role",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "example": {
+                "team_name": "DevOps",
+                "team_role": "DevOps junior dev"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "success"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Server error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "failure"
+                },
+                "error": {
+                  "type": "string",
+                  "example": "Cannot connect to the database"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get_team": {
+      "get": {
+        "tags": [
+          "main"
+        ],
+        "summary": "Query the table TeamDetails and returns list of roles",
+        "description": "This method is a GET endpoint which take param team_name query the table TeamDetails and returns list of roles under the team",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "team_name",
+            "in": "query",
+            "description": "team_name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "DevOps junior dev",
+                  "DevOps senior dev"
+                ]
+              }
+            }
+          },
+          "503": {
+            "description": "Server error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "failure"
+                },
+                "error": {
+                  "type": "string",
+                  "example": "Cannot connect to the database"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+  api:
+    restart: always
+    build: ./src
+    expose:
+      - "8000"
+    links:
+      - postgres:postgres
+    volumes:
+      - api-data:/usr/src/app/static
+    command: /usr/local/bin/gunicorn -w 2 -b :8000 app:app
+
+  postgres:
+    restart: always
+    image: postgres:latest
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5434:5434"
+
+volumes:
+  db-data:
+  api-data:

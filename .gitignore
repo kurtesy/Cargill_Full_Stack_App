@@ -1,0 +1,23 @@
+
+# dependencies
+/cargill_ui/node_modules
+/cargill_ui/.pnp
+/cargill_ui.pnp.js
+
+# testing
+/cargill_ui/coverage
+
+# production
+/cargill_ui/build
+
+# misc
+/cargill_ui/.DS_Store
+/cargill_ui/.env.local
+/cargill_ui/.env.development.local
+/cargill_ui/.env.test.local
+/cargill_ui/.env.production.local
+
+/cargill_ui/npm-debug.log*
+/cargill_ui/yarn-debug.log*
+/cargill_ui/yarn-error.log*
+

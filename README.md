@@ -16,6 +16,9 @@
 - Docker
 - Git
 
+### React UI Snapshot
+![Alt text](./static/images/cargill_ui_img.png?raw=true "Title")
+
 ## Setup walkthrough
 1. clone the code from github using below command
     ```

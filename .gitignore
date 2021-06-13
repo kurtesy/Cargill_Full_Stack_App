@@ -1,6 +1,6 @@
 
 # dependencies
-/cargill_ui/node_modules
+/cargill_ui_react/node_modules/*
 /cargill_ui/.pnp
 /cargill_ui.pnp.js
 
@@ -21,3 +21,4 @@
 /cargill_ui/yarn-debug.log*
 /cargill_ui/yarn-error.log*
 
+cargill_ui_react/node_modules/.bin/autoprefixer

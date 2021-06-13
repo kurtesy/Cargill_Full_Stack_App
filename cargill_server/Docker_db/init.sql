@@ -1,0 +1,3 @@
+CREATE USER admin;
+CREATE DATABASE cargilldbdev;
+GRANT ALL PRIVILEGES ON DATABASE cargilldbdev TO admin;

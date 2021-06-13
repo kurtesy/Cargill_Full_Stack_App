@@ -2,10 +2,10 @@
   "dev": {
     "DEBUG": true,
     "DB_NAME": "cargilldbdev",
-    "DB_USER": "admin",
+    "DB_USER": "postgres",
     "DB_PASS": "admin123",
     "DB_SERVICE": "localhost",
-    "DB_PORT": "5434"
+    "DB_PORT": "5432"
   },
   "prod": {
     "DEBUG": false,

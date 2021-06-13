@@ -1,20 +1,17 @@
 version: '3.3'
 
 services:
-  api:
-    restart: always
-    build: ./src
-    expose:
-      - "8000"
-    links:
-      - postgres:postgres
-    volumes:
-      - api-data:/usr/src/app/static
-    command: /usr/local/bin/gunicorn -w 2 -b :8000 app:app
 
   postgres:
     restart: always
     image: postgres:latest
+    build:
+      context: ./Docker_db
+      dockerfile: db.Dockerfile
+    environment:
+      POSTGRES_USER: "admin"
+      POSTGRES_DB: "cargilldbdev"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:
@@ -22,4 +19,3 @@ services:
 
 volumes:
   db-data:
-  api-data:
